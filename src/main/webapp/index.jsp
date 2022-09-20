@@ -21,7 +21,7 @@
 			<option value="div">Div</option>
 		</select> <br> <input type="submit" value="Go">
 	</form>
-	<h1>Hello JNTUK</h1>
+	<h1>Hello Srkr</h1>
 	<h2>Hello DV</h2>
 </body>
 </html>
