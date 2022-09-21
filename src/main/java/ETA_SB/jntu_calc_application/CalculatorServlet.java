@@ -16,7 +16,7 @@ public class CalculatorServlet extends HttpServlet {
 	double res;
     public CalculatorServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
