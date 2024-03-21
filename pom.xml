@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -10,7 +9,6 @@
 	<name>jntu_calc_application</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
@@ -20,11 +18,54 @@
 		<sonar.projectKey>calculator</sonar.projectKey>
 		<sonar.language>java</sonar.language>
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
-		<sonar.login>admin</sonar.login>
-		<sonar.password>Password</sonar.password>
+		<sonar.login>b20b80c547767a641f2231f826c88a55113ad35c</sonar.login>
+           
+	</properties>	
+<profiles>
+<profile>
+<id>'sonar'</id>
+<activation>
+<activeByDefault>true</activeByDefault></activation>
 
-	</properties>
+</profile>
 
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>calc-libs-release</name>
+          <url>https://srkrec.jfrog.io/artifactory/calc-libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>calc-libs-snapshot</name>
+          <url>https://srkrec.jfrog.io/artifactory/calc-libs-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>calc-libs-release</name>
+          <url>https://srkrec.jfrog.io/artifactory/calc-libs-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>calc-libs-snapshot</name>
+          <url>https://srkrec.jfrog.io/artifactory/calc-libs-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -38,9 +79,22 @@
 			<version>4.0.1</version>
 
 		</dependency>
+		<dependency>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.4.0.905</version>
+    <type>pom</type>
+</dependency>
+<dependency>
+<groupId>org.seleniumhq.selenium</groupId>
+<artifactId>selenium-java</artifactId>
+<version>3.6.0</version>
+<scope>provided</scope>
+</dependency>
 	</dependencies>
 
 	<build>
+	<finalName>calculator</finalName>
 		<pluginManagement>
 			<!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
 			<plugins>
@@ -127,8 +181,8 @@
 	<distributionManagement>
 		<repository>
 			<id>artifactory</id>
-			<name>Calc_Dev_Snapshot</name>
-			<url>http://localhost:8081/artifactory/Calc_Dev_Snapshot</url>
+			<name>calc-libs-snapshot</name>
+			<url>https://srkrec.jfrog.io/artifactory/api/maven/calc-libs-snapshot</url>
 		</repository>
 	</distributionManagement>
 </project>
