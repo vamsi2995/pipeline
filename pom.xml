@@ -65,6 +65,7 @@
       <id>artifactory</id>
     </profile>
   </profiles>
+  
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -174,7 +175,17 @@
 					<artifactId>sonar-maven-plugin</artifactId>
 					<version>3.9.1.2184</version>
 				</plugin>
+				
+    <!-- do not publish this artifact to Maven repositories -->
+    <plugin>
+      <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+    </plugin>
+ 
 			</plugins>
+			
 		</pluginManagement>
 	</build>
 	<distributionManagement>
