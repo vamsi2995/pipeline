@@ -52,20 +52,19 @@
             <enabled>false</enabled>
           </snapshots>
           <id>central</id>
-          <name>calc-libs-release</name>
-          <url>https://srkrec.jfrog.io/artifactory/calc-libs-release</url>
+          <name>my-maven-local-snapshots</name>
+			<url>http://localhost:8082/ui/admin/repositories/local/my-maven-local-snapshots</url>
         </pluginRepository>
         <pluginRepository>
           <snapshots />
           <id>snapshots</id>
-          <name>calc-libs-snapshot</name>
-          <url>https://srkrec.jfrog.io/artifactory/calc-libs-snapshot</url>
+          <name>my-maven-local-snapshots</name>
+			<url>http://localhost:8082/ui/admin/repositories/local/my-maven-local-snapshots</url>
         </pluginRepository>
       </pluginRepositories>
       <id>artifactory</id>
     </profile>
   </profiles>
-  
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -180,9 +179,9 @@
 	</build>
 	<distributionManagement>
 		<repository>
-			<id>artifactory</id>
-			<name>calc-libs-snapshot</name>
-			<url>https://srkrec.jfrog.io/artifactory/api/maven/calc-libs-snapshot</url>
-		</repository>
+			<id>central</id>
+			<name>my-maven-local-snapshots</name>
+			<url>http://localhost:8082/ui/admin/repositories/local/my-maven-local-snapshots</url>
+			</repository>
 	</distributionManagement>
 </project>
